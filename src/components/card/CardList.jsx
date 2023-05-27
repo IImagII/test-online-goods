@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { useActions } from '../../hooks/useActions'
-import { useGoods } from '../../hooks/useGoods'
+import { useGoods } from '../../hooks/useSelectorState'
 
 import CardItem from './CardItem'
 
@@ -16,7 +16,7 @@ const CardList = () => {
   return (
     <>
       {goodsData.map((item) => (
-        <CardItem item={item} />
+        <CardItem item={item} key={item._id} />
       ))}
     </>
   )
