@@ -1,0 +1,38 @@
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &.active {
+        text-decoration: underline;
+        text-decoration-thickness: 0.15em;
+        text-underline-offset: 0.15em;
+        text-decoration-color: red;
+        font-weight: bold;
+        color: black;
+      }
+    }
+  }
+}
+.title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-transform: uppercase;
+  margin: 30px 0 50px 0;
+}
