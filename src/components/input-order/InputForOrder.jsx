@@ -1,22 +1,12 @@
-import {
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  InputLeftElement,
-  Stack
-} from '@chakra-ui/react'
-import { AiOutlineHome, AiOutlineMail } from 'react-icons/ai'
-import { MdDriveFileRenameOutline } from 'react-icons/md'
+import { FormControl, FormLabel, Input, Stack } from '@chakra-ui/react'
 
-const InputForOrder = ({ inputDataAll, setInputDataAll }) => {
+const InputForOrder = ({ inputDataAll, setInputDataAll, isError }) => {
   return (
     <Stack spacing={4}>
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <MdDriveFileRenameOutline size={20} />
-        </InputLeftElement>
+      <FormControl isRequired isInvalid={!isError}>
+        <FormLabel>First name</FormLabel>
         <Input
-          placeholder="Name"
+          placeholder="First name"
           value={inputDataAll.name}
           onChange={(e) =>
             setInputDataAll({
@@ -25,12 +15,10 @@ const InputForOrder = ({ inputDataAll, setInputDataAll }) => {
             })
           }
         />
-      </InputGroup>
+      </FormControl>
 
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <AiOutlineMail size={20} />
-        </InputLeftElement>
+      <FormControl isRequired isInvalid={!isError}>
+        <FormLabel>E-mail</FormLabel>
         <Input
           placeholder="E-mail"
           value={inputDataAll.email}
@@ -41,14 +29,12 @@ const InputForOrder = ({ inputDataAll, setInputDataAll }) => {
             })
           }
         />
-      </InputGroup>
+      </FormControl>
 
-      <InputGroup>
-        <InputLeftAddon children="+380" />
-        <InputLeftElement pointerEvents="none" />
+      <FormControl isRequired isInvalid={!isError}>
+        <FormLabel>Number</FormLabel>
         <Input
-          type="tel"
-          placeholder="Phone number"
+          placeholder="Number"
           value={inputDataAll.number}
           onChange={(e) =>
             setInputDataAll({
@@ -57,12 +43,10 @@ const InputForOrder = ({ inputDataAll, setInputDataAll }) => {
             })
           }
         />
-      </InputGroup>
+      </FormControl>
 
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <AiOutlineHome size={20} />
-        </InputLeftElement>
+      <FormControl isRequired isInvalid={!isError}>
+        <FormLabel>Address</FormLabel>
         <Input
           placeholder="Address"
           value={inputDataAll.address}
@@ -73,7 +57,7 @@ const InputForOrder = ({ inputDataAll, setInputDataAll }) => {
             })
           }
         />
-      </InputGroup>
+      </FormControl>
     </Stack>
   )
 }

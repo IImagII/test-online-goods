@@ -1,6 +1,8 @@
 import {
   Alert,
+  AlertDescription,
   AlertIcon,
+  AlertTitle,
   Box,
   Button,
   Flex,
@@ -35,7 +37,9 @@ const CartList = () => {
     address: ''
   })
 
-  const handleSubmit = useCallback(() => {
+  const [isError, setIsError] = useState(true)
+
+  const handleSubmitOrder = useCallback(() => {
     const formData = new FormData()
 
     for (const [key, value] of Object.entries(inputDataAll)) {
@@ -45,18 +49,29 @@ const CartList = () => {
     formData.append('addCount', addCount)
     formData.append('totalPrice', totalPrice)
 
-    createOrder(formData)
+    if (
+      inputDataAll.name &&
+      inputDataAll.email &&
+      inputDataAll.number &&
+      inputDataAll.address !== ''
+    ) {
+      setIsError(!isError)
 
-    setInputDataAll({
-      name: '',
-      email: '',
-      number: '',
-      address: ''
-    })
+      createOrder(formData)
 
-    clearItems()
+      clearItems()
 
-    navigate('/')
+      navigate('/')
+
+      setInputDataAll({
+        name: '',
+        email: '',
+        number: '',
+        address: ''
+      })
+    } else {
+      setIsError(false)
+    }
   }, [inputDataAll, addCount, totalPrice, createOrder, clearItems, navigate])
 
   return (
@@ -66,10 +81,21 @@ const CartList = () => {
           <CartEmpty />
         ) : (
           <Box>
+            {!isError && (
+              <Alert status="error">
+                <AlertIcon />
+
+                <AlertDescription>
+                  Заполните все поля для отправки заказа
+                </AlertDescription>
+              </Alert>
+            )}
+
             <Box mb="50px">
               <InputForOrder
                 inputDataAll={inputDataAll}
                 setInputDataAll={setInputDataAll}
+                isError={isError}
               />
             </Box>
             <TableContainer>
@@ -103,7 +129,7 @@ const CartList = () => {
               <Button bg="rgb(253, 153, 153)" onClick={() => clearItems()}>
                 Очистить корзину
               </Button>
-              <Button onClick={handleSubmit} colorScheme="blue">
+              <Button onClick={handleSubmitOrder} colorScheme="blue">
                 Отправить заказ
               </Button>
             </Box>

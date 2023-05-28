@@ -1,23 +1,23 @@
 {
-	"trailingComma": "none",
-	"tabWidth": 2,
-	"useTabs": false,
-	"semi": false,
-	"singleQuote": true,
-	"importOrder": [
-	  "<THIRD_PARTY_MODULES>",
-	  "^@/components/(.*)$",
-	  "^@/services/(.*)$",
-	  "^@/pages/(.*)$",
-	  "^@/store/(.*)$",
-	  "^@/api/(.*)$",
-	  "^@/hooks/(.*)$",
-	  "^@/utils/(.*)$",
-	  "^../(.*)",
-	  "^./(.*)",
-	  "^@/.*\\.scss$"
-	],
-	"importOrderSeparation": true,
-	"importOrderSortSpecifiers": true
-   }
-   
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/api/(.*)$",
+    "^@/components/(.*)$",
+    "^@/services/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/pages/(.*)$",
+    "^@/store/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/utils/(.*)$",
+    "^../(.*)",
+    "^./(.*)",
+    "^@/.*\\.scss$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

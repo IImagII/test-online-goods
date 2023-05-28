@@ -2,6 +2,7 @@ import { Box, Container, Flex, Image, useColorMode } from '@chakra-ui/react'
 
 import logo from '../styles/img/pizza.png'
 
+import ShowCart from './ShowCart'
 import ColorModeSwitcher from './ui/ColorModeSwitcher'
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
       <Container maxW="container.xl">
         <Flex justifyContent="space-between" alignItems="center">
           <Image src={logo} alt="logo" boxSize="70px" objectFit="cover" />
+          <ShowCart />
           <ColorModeSwitcher />
         </Flex>
       </Container>
