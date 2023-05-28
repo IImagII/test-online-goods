@@ -33,7 +33,7 @@ const CardItem = ({ item }) => {
   }
 
   return (
-    <Card maxW="sm" margin={3} bg="gray.200">
+    <Card maxW="270px" margin={3} bg="gray.200">
       <CardBody>
         <Image src={imageUrl} alt={title} borderRadius="lg" />
         <Stack mt="6" spacing="3">
@@ -63,7 +63,7 @@ const CardItem = ({ item }) => {
               />
             </ButtonGroup>
           </Box>
-          <Box ml="50px">
+          <Box ml="30px">
             <Text>
               В корзине:<Text as="b"> {getCartItem(items, _id)}</Text> шт.
             </Text>

@@ -6,24 +6,25 @@ import Header from '../../Header'
 import SideBar from '../../SideBar'
 
 const Layout = () => {
-  const headerHeight = 60
-  const footerHeight = 80
-
   return (
     <>
-      <Container maxW="container.xl">
+      <Container
+        maxW="container.xl"
+        display="flex"
+        flexDirection="column"
+        minHeight="100vh"
+      >
         <Header />
-        <Box width="100%" display="flex">
+
+        <Box flex="1" display="flex">
           <Box width="20%">
             <SideBar />
           </Box>
-          <Box
-            width="80%"
-            height={`calc(100vh - ${headerHeight}px - ${footerHeight}px)`}
-          >
+          <Box width="80%">
             <Outlet />
           </Box>
         </Box>
+
         <Footer />
       </Container>
     </>

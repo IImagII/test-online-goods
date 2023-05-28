@@ -1,4 +1,4 @@
-import { axiosClassic } from '../../api/axios'
+import { axiosClassic } from '../api/axios'
 
 export const GoodService = {
   async getAll() {

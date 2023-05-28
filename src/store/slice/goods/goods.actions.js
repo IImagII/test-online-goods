@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { GoodService } from '../../../services/good/good.service'
+import { GoodService } from '../../../services/good.service'
 
 export const goodsGet = createAsyncThunk(
   'goods/getAll',

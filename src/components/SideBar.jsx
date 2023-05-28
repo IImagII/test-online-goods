@@ -1,4 +1,4 @@
-import { Box, useColorMode } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import Menu from './menu/Menu'
 import { menu } from './menu/menu.data'
