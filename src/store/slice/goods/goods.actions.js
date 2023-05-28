@@ -14,3 +14,16 @@ export const goodsGet = createAsyncThunk(
     }
   }
 )
+
+export const getIdGood = createAsyncThunk(
+  'goods/getIdGood',
+  async (id, thunkAPI) => {
+    try {
+      const response = await GoodService.getIdGood(id)
+
+      return response
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err)
+    }
+  }
+)

@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { goodsGet } from './goods.actions'
+import { getIdGood, goodsGet } from './goods.actions'
 
 const initialState = {
   data: [],
-  isLoading: false
+  isLoading: false,
+  good: null
 }
 
 export const goodsSlice = createSlice({
@@ -23,6 +24,17 @@ export const goodsSlice = createSlice({
       .addCase(goodsGet.rejected, (state) => {
         state.isLoading = false
         state.data = []
+      })
+      .addCase(getIdGood.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getIdGood.fulfilled, (state, { payload }) => {
+        state.isLoading = false
+        state.good = payload
+      })
+      .addCase(getIdGood.rejected, (state) => {
+        state.isLoading = false
+        state.good = null
       })
   }
 })

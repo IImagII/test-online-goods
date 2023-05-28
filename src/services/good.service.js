@@ -5,5 +5,11 @@ export const GoodService = {
     const { data } = await axiosClassic.get('/goods')
 
     return data
+  },
+
+  async getIdGood(id) {
+    const { data } = await axiosClassic.get(`/good/${id}`)
+
+    return data
   }
 }
